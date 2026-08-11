@@ -7,7 +7,7 @@ Agentul ar trebui sa urmeze urmatorul flow (atat in engleza cat si in romana):
 ```mermaid
 flowchart TD
     Start(["Client trimite mesaj pe WhatsApp/Email/SMS"]) --> Input["Mesaj: Caut apartamente in Sibiu / Timisoara"]
-    Input --> DB_Check{"Agent AI interogheaza<br>Baza de Date / CRM<br><i>(Timp raspuns &lt; 1 min)</i>"}
+    Input --> DB_Check{"Agent AI interogheaza\nBaza de Date / CRM\n(Timp raspuns &lt; 1 min)"}
 
     %% Scenariu A: Exista oferte
     DB_Check -- "Exista oferte disponibile" --> Send_Offers["Agentul trimite ofertele gasite cu detalii de baza"]
@@ -16,24 +16,24 @@ flowchart TD
     
     FollowUp1 --> Client_Response1{"Raspuns Client"}
     
-    Client_Response1 -- "Interesat / Detalii suplimentare" --> Qualify["Agentul aplica intrebarile de calificare:<br>- Buget<br>- Numar camere<br>- Scop: locuit / investitie"]
+    Client_Response1 -- "Interesat / Detalii suplimentare" --> Qualify["Agentul aplica intrebarile de calificare:\n- Buget\n- Numar camere\n- Scop: locuit / investitie"]
     Qualify --> Schedule["Agentul propune vizionare / apel"]
     Schedule --> Booked{"Clientul accepta slotul?"}
     
-    Booked -- Da --> CRM_Success["1. Salveaza Lead 'Calificat' in CRM<br>2. Programeaza vizionarea in Calendar<br>3. Notifica Agent Uman"]
+    Booked -- Da --> CRM_Success["1. Salveaza Lead 'Calificat' in CRM\n2. Programeaza vizionarea in Calendar\n3. Notifica Agent Uman"]
     Booked -- Nu --> Nurture["Programeaza follow-up peste 3 zile"]
 
     Client_Response1 -- "Fara raspuns (24h)" --> ReEngage["Agentul trimite reminder automat"]
     ReEngage --> CRM_Cold["Marcheaza Lead ca 'Inactiv' in CRM"]
 
     %% Scenariu B: Nu exista oferte
-    DB_Check -- "0 Oferte gasite" --> No_Offers["Agentul raspunde: 'Totul e vandut in Sibiu/Timisoara.<br>Te-ar interesa alte zone sau alte criterii?'"]
+    DB_Check -- "0 Oferte gasite" --> No_Offers["Agentul raspunde: 'Totul e vandut in Sibiu/Timisoara.\nTe-ar interesa alte zone sau alte criterii?'"]
     No_Offers --> Client_Response2{"Raspuns Client"}
 
     Client_Response2 -- "Da (Vrea alte zone/criterii)" --> Update_Criteria["Preluare noi criterii: ex. Cluj, Brasov"]
     Update_Criteria --> DB_Check
 
-    Client_Response2 -- "Nu (Exclusiv Sibiu/Timisoara)" --> Waitlist["1. Salveaza Lead in CRM ca 'Waitlist Sibiu/Timisoara'<br>2. Seteaza Trigger: Notificare automata la listing nou"]
+    Client_Response2 -- "Nu (Exclusiv Sibiu/Timisoara)" --> Waitlist["1. Salveaza Lead in CRM ca 'Waitlist Sibiu/Timisoara'\n2. Seteaza Trigger: Notificare automata la listing nou"]
     
     CRM_Success --> End(["Fin Flow"])
     CRM_Cold --> End
@@ -62,7 +62,7 @@ flowchart TD
     
     Form_Contact --> Confirm_Booking{Procesare Rezervare}
     
-    Confirm_Booking --> System_Actions[1. Blocare slot în Calendar<br>2. Salvare / Update Lead în CRM<br>3. Trimite confirmare WhatsApp + Email conținând:<br>   - Detalii întâlnire / Link Maps / Link Meet<br>   - Fișier calendar .ics]
+    Confirm_Booking --> System_Actions["1. Blocare slot în Calendar\n2. Salvare / Update Lead în CRM\n3. Trimite confirmare WhatsApp + Email conținând:\n   - Detalii întâlnire / Link Maps / Link Meet\n   - Fișier calendar .ics"]
     
     System_Actions --> Notif_Agent[Notificare Agent Uman: 'Meeting Nou Programat']
     
