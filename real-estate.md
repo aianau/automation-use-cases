@@ -163,9 +163,9 @@ Acest flow poate fi integrat si in [User flow prezentare oferte in functie de cr
 
 Astfel de flowuri se pot integra si automatiza in n8n, platforma care e open source si se poate face hosting in cloud cu costuri scazute. 
 
-Alte zone cu un potencial mare de automatizare, este zona de post-tranzactionala, unde se pot automatiza task-uri repetitive cum ar fi: 
+Alte zone cu un potential mare de automatizare, sunt task-uri repetitive cum ar fi: 
 1. Trimiterea de mesaje catre client/agenti in diferite etape ale procesului de achizitie
 2. Generarea de rapoarte si documente necesare in procesul de a chizitie
-3. Preluare de date pentru aplicarea unui credit ipotecar
+3. Preluare de oferte de credite bancare si utilizarea lor pentru analizarea clientilor inspre aplicarea unui credit ipotecar
 4. Follow-up cu clientii post achizitie
 
